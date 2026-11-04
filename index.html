@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0a5fd1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="iPhone-Hilfe">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>iPhone-Hilfe</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="safe-probe" id="safeProbe" aria-hidden="true"></div>
+
+  <header class="kopf" id="kopf">
+    <button type="button" class="btn btn-nav" id="btnZurueck" aria-label="Zurück">⬅ Zurück</button>
+    <button type="button" class="btn btn-nav" id="btnStart" aria-label="Zur Startseite">🏠 Start</button>
+  </header>
+
+  <main id="app" tabindex="-1"></main>
+
+  <footer class="fuss">
+    <button type="button" class="zahnrad" id="btnZahnrad" aria-label="Einstellungen für Angehörige, 2 Sekunden gedrückt halten">⚙</button>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <noscript><p class="noscript">Bitte schalte JavaScript ein.</p></noscript>
+
+  <script src="js/dom.js"></script>
+  <script src="js/data/anleitungen.js"></script>
+  <script src="js/geraet.js"></script>
+  <script src="js/einrichtung.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
