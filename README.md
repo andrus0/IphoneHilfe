@@ -45,7 +45,7 @@ Dann im Browser `http://localhost:8765` öffnen.
 
 Öffentliche Adresse: https://kingscourtha01.tail4afa51.ts.net:8443
 
-Der Container läuft mit nginx auf Port 8085 (`docker-compose.yml`, `IPHONEHILFE_PORT`). Hosting: Raspberry Pi `kingscourtha01`, Tailscale Funnel.
+Der Container läuft mit nginx auf dem nächsten freien Port ab 8085: `deploy.sh` wählt ihn auf dem Pi automatisch und merkt ihn in `~/iphonehilfe/.env` (TWIK 8083, PragApp 8084 werden übersprungen). `funnel.sh` übernimmt ihn von dort. Hosting: Raspberry Pi `kingscourtha01`, Tailscale Funnel.
 
 ## Projektstruktur
 

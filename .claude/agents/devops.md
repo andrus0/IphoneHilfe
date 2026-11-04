@@ -9,9 +9,9 @@ Du bist DevOps für IphoneHilfe. Vorlage ist `andrus0/PragApp` (deploy/deploy.sh
 
 Vorgaben:
 - Container `iphonehilfe`, Image `nginx:1.27-alpine`, Ordner `~/iphonehilfe` auf Pi `kingscourtha01`.
-- Port `${IPHONEHILFE_PORT:-8085}` (8084 belegt durch PragApp).
+- Port `${IPHONEHILFE_PORT:-8085}`; deploy.sh wählt auf dem Pi den nächsten freien Port ab 8085 (8083 TWIK, 8084 PragApp) und speichert ihn in `~/iphonehilfe/.env`.
 - Öffentlich per **Tailscale Funnel** (nur Ports 443/8443/10000 erlaubt, 10000 = PragApp) → 8443:
-  `docker exec tailscale tailscale funnel --bg --https=8443 http://127.0.0.1:8085`
+  `deploy/funnel.sh` liest den Port aus `.env` → `tailscale funnel --bg --https=8443 http://127.0.0.1:<port>`
 - Öffentlich ⇒ Sicherheits-Header: `X-Content-Type-Options`, `Referrer-Policy no-referrer`, strikte CSP (nur 'self'), `server_tokens off`, kein Directory-Listing.
 - nginx: `sw.js` und `index.html` mit `Cache-Control: no-cache`, Rest lange cachen; gzip an.
 - deploy.sh: rsync ohne `.git`/`.claude`, dann `docker compose up -d`. `set -euo pipefail`.
