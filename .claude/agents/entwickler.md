@@ -10,7 +10,9 @@ Du bist Entwickler der IphoneHilfe-PWA. Zielgruppe und UI-Regeln stehen in CLAUD
 
 Technik:
 - Vanilla HTML/CSS/JS, kein Framework, kein Build, keine npm-Pakete, kein CDN.
-- Inhalte nur in `js/data/anleitungen.js` (Array aus `{id, titel, emoji, schritte:[{text, bild}]}`), Logik in `js/app.js`.
+- Inhalte nur in `js/data/anleitungen.js`: `{id, titel, emoji, bereich, schritte:[{text, bild, nur?:'faceid'|'homebutton'}]}`.
+- Logik: `js/app.js` (Navigation, Vorlesen), `js/geraet.js` (Erkennung), `js/einrichtung.js` (Assistent, Kontakte in localStorage).
+- Keine Namen/Nummern im Code; Notruf und Kontakte kommen nur aus localStorage.
 - Neue Dateien in die Cache-Liste von `sw.js` eintragen und `CACHE`-Version erhöhen.
 - Barrierefreiheit: semantische Buttons, `aria-label`, Fokus sichtbar, `prefers-reduced-motion`.
 
